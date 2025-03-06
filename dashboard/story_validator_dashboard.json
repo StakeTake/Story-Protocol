@@ -1,0 +1,34 @@
+{
+  "dashboard": {
+    "id": null,
+    "uid": "story_validator_dashboard",
+    "title": "Story Validator Dashboard",
+    "timezone": "browser",
+    "panels": [
+      {
+        "type": "table",
+        "title": "Validators Information",
+        "datasource": "Story REST API",
+        "targets": [
+          {
+            "url": "/validators",
+            "method": "GET",
+            "jsonData": {}
+          }
+        ]
+      },
+      {
+        "type": "graph",
+        "title": "Signed Blocks",
+        "datasource": "Story RPC Prometheus",
+        "targets": [
+          {
+            "expr": "tendermint_consensus_height",
+            "legendFormat": "{{instance}}"
+          }
+        ]
+      }
+    ]
+  },
+  "overwrite": true
+}
